@@ -1,15 +1,20 @@
 package com.fridge.app.data.repository
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import com.fridge.app.data.dao.RecipeDao
+import com.fridge.app.data.db.AppDatabase
 import com.fridge.app.data.model.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 
 class RecipeRepository(private val recipeDao: RecipeDao) {
+    constructor(application: Application) : this(AppDatabase.getDatabase(application).recipeDao())
 
     val allRecipes: LiveData<List<Recipe>> = recipeDao.getAllRecipes()
 
-    suspend fun getRecipeById(id: Long): Recipe? {
-        return recipeDao.getRecipeById(id)
+    suspend fun getRecipeById(id: Long): Recipe? = withContext(Dispatchers.IO) {
+        recipeDao.getRecipeById(id)
     }
     
     // 别名方法
@@ -37,28 +42,28 @@ class RecipeRepository(private val recipeDao: RecipeDao) {
         return recipeDao.getRecipesByTag(tag)
     }
 
-    suspend fun insertRecipe(recipe: Recipe): Long {
-        return recipeDao.insertRecipe(recipe)
+    suspend fun insertRecipe(recipe: Recipe): Long = withContext(Dispatchers.IO) {
+        recipeDao.insertRecipe(recipe)
     }
 
-    suspend fun updateRecipe(recipe: Recipe) {
+    suspend fun updateRecipe(recipe: Recipe) = withContext(Dispatchers.IO) {
         recipeDao.updateRecipe(recipe)
     }
 
-    suspend fun deleteRecipe(recipe: Recipe) {
+    suspend fun deleteRecipe(recipe: Recipe) = withContext(Dispatchers.IO) {
         recipeDao.deleteRecipe(recipe)
     }
 
-    suspend fun deleteRecipeById(id: Long) {
+    suspend fun deleteRecipeById(id: Long) = withContext(Dispatchers.IO) {
         recipeDao.deleteRecipeById(id)
     }
 
-    suspend fun deleteAllRecipes() {
+    suspend fun deleteAllRecipes() = withContext(Dispatchers.IO) {
         recipeDao.deleteAllRecipes()
     }
 
-    suspend fun getRecipeCount(): Int {
-        return recipeDao.getRecipeCount()
+    suspend fun getRecipeCount(): Int = withContext(Dispatchers.IO) {
+        recipeDao.getRecipeCount()
     }
 
     // 根据现有食材匹配可制作的菜谱

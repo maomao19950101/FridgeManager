@@ -286,7 +286,7 @@ class IngredientDetailActivity : AppCompatActivity() {
         
         ingredient?.let { ing ->
             dialogBinding.apply {
-                etName.setText(ing.name)
+                etIngredientName.setText(ing.name)
                 etQuantity.setText(ing.quantity.toString())
                 etUnit.setText(ing.unit)
                 etNotes.setText(ing.notes)
@@ -308,7 +308,7 @@ class IngredientDetailActivity : AppCompatActivity() {
     }
     
     private fun saveChanges(dialogBinding: com.fridge.app.databinding.DialogAddIngredientBinding) {
-        val name = dialogBinding.etName.text.toString().trim()
+        val name = dialogBinding.etIngredientName.text.toString().trim()
         val quantityStr = dialogBinding.etQuantity.text.toString().trim()
         val unit = dialogBinding.etUnit.text.toString().trim()
         val expireDateStr = dialogBinding.etExpireDate.text.toString().trim()

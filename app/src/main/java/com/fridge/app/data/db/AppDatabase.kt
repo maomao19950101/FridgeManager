@@ -59,53 +59,52 @@ abstract class AppDatabase : RoomDatabase() {
         }
 
         suspend fun populateDatabase(recipeDao: RecipeDao) {
-            // 预置一些示例菜谱
             val sampleRecipes = listOf(
                 Recipe(
                     id = 0,
-                    name = "番茄炒蛋",
-                    description = "经典家常菜，简单美味",
+                    name = "Tomato Scrambled Eggs",
+                    description = "A simple homestyle dish that's quick to make.",
                     cookingTime = 15,
                     difficulty = Difficulty.EASY,
                     servings = 2,
                     ingredients = listOf(
-                        RecipeIngredient("番茄", "2个", true),
-                        RecipeIngredient("鸡蛋", "3个", true),
-                        RecipeIngredient("葱花", "适量", false),
-                        RecipeIngredient("盐", "适量", true)
+                        RecipeIngredient("Tomato", "2", true),
+                        RecipeIngredient("Egg", "3", true),
+                        RecipeIngredient("Scallion", "to taste", false),
+                        RecipeIngredient("Salt", "to taste", true)
                     ),
                     steps = listOf(
-                        "番茄洗净切块，鸡蛋打散备用",
-                        "热锅凉油，倒入蛋液炒熟盛出",
-                        "锅中留底油，放入番茄翻炒出汁",
-                        "加入炒好的鸡蛋，调味即可出锅"
+                        "Cut the tomatoes into wedges and beat the eggs.",
+                        "Cook the eggs first and set them aside.",
+                        "Stir-fry the tomatoes until they soften and release juice.",
+                        "Return the eggs to the pan, season, and serve."
                     ),
-                    tags = listOf("家常菜", "快手菜", "素食"),
-                    cuisineType = "家常菜"
+                    tags = listOf("Homestyle", "Quick", "Vegetarian"),
+                    cuisineType = "Home Cooking"
                 ),
                 Recipe(
                     id = 0,
-                    name = "宫保鸡丁",
-                    description = "川菜经典，麻辣鲜香",
+                    name = "Kung Pao Chicken",
+                    description = "A classic spicy stir-fry with chicken and peanuts.",
                     cookingTime = 30,
                     difficulty = Difficulty.MEDIUM,
                     servings = 3,
                     ingredients = listOf(
-                        RecipeIngredient("鸡胸肉", "300g", true),
-                        RecipeIngredient("花生米", "50g", true),
-                        RecipeIngredient("干辣椒", "10个", true),
-                        RecipeIngredient("花椒", "1勺", true),
-                        RecipeIngredient("葱姜蒜", "适量", true)
+                        RecipeIngredient("Chicken Breast", "300g", true),
+                        RecipeIngredient("Peanuts", "50g", true),
+                        RecipeIngredient("Dried Chili", "10", true),
+                        RecipeIngredient("Sichuan Pepper", "1 tbsp", true),
+                        RecipeIngredient("Scallion", "to taste", true)
                     ),
                     steps = listOf(
-                        "鸡胸肉切丁，加料酒、生抽腌制15分钟",
-                        "花生米炸香备用",
-                        "热锅凉油，放入花椒、干辣椒爆香",
-                        "放入鸡丁炒至变色",
-                        "加入调料汁翻炒，最后撒入花生米"
+                        "Dice and marinate the chicken for 15 minutes.",
+                        "Toast the peanuts and set them aside.",
+                        "Stir-fry chili and Sichuan pepper until fragrant.",
+                        "Cook the chicken until just done.",
+                        "Add the sauce, toss everything together, then finish with peanuts."
                     ),
-                    tags = listOf("川菜", "辣", "下饭菜"),
-                    cuisineType = "川菜"
+                    tags = listOf("Sichuan", "Spicy", "Dinner"),
+                    cuisineType = "Sichuan"
                 )
             )
             sampleRecipes.forEach { recipeDao.insertRecipe(it) }

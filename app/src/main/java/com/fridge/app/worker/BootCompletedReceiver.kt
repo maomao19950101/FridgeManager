@@ -10,6 +10,7 @@ import android.util.Log
 import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
+import com.fridge.app.R
 import com.fridge.app.notification.NotificationHelper
 import java.util.Calendar
 import java.util.concurrent.TimeUnit

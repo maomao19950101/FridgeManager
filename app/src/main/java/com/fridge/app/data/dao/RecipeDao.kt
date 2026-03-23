@@ -11,7 +11,7 @@ interface RecipeDao {
     fun getAllRecipes(): LiveData<List<Recipe>>
 
     @Query("SELECT * FROM recipes WHERE id = :id")
-    suspend fun getRecipeById(id: Long): Recipe?
+    fun getRecipeById(id: Long): Recipe?
 
     @Query("SELECT * FROM recipes WHERE difficulty = :difficulty ORDER BY name ASC")
     fun getRecipesByDifficulty(difficulty: Difficulty): LiveData<List<Recipe>>
@@ -29,23 +29,23 @@ interface RecipeDao {
     fun getRecipesByTag(tag: String): LiveData<List<Recipe>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertRecipe(recipe: Recipe): Long
+    fun insertRecipe(recipe: Recipe): Long
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertRecipes(recipes: List<Recipe>)
+    fun insertRecipes(recipes: List<Recipe>)
 
     @Update
-    suspend fun updateRecipe(recipe: Recipe)
+    fun updateRecipe(recipe: Recipe)
 
     @Delete
-    suspend fun deleteRecipe(recipe: Recipe)
+    fun deleteRecipe(recipe: Recipe)
 
     @Query("DELETE FROM recipes WHERE id = :id")
-    suspend fun deleteRecipeById(id: Long)
+    fun deleteRecipeById(id: Long)
 
     @Query("DELETE FROM recipes")
-    suspend fun deleteAllRecipes()
+    fun deleteAllRecipes()
 
     @Query("SELECT COUNT(*) FROM recipes")
-    suspend fun getRecipeCount(): Int
+    fun getRecipeCount(): Int
 }

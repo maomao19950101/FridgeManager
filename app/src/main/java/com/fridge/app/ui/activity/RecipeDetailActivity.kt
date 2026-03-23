@@ -306,11 +306,8 @@ class RecipeDetailActivity : AppCompatActivity() {
     }
     
     private fun startCookingMode() {
-        recipe?.let { r ->
-            val intent = Intent(this, CookingModeActivity::class.java).apply {
-                putExtra(CookingModeActivity.EXTRA_RECIPE, r)
-            }
-            startActivity(intent)
+        recipe?.let {
+            startActivity(Intent(this, CookingModeActivity::class.java))
         }
     }
     

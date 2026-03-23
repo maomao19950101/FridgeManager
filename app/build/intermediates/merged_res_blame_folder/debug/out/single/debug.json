@@ -1,0 +1,194 @@
+[
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_time.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_time.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_fragment_ingredient_list.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/fragment_ingredient_list.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_add.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_add.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_activity_ingredient_detail.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/activity_ingredient_detail.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_favorite_border.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_favorite_border.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/menu_menu_ingredient_item.xml.flat",
+        "source": "com.fridge.app-main-61:/menu/menu_ingredient_item.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_days_left_expiring.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_days_left_expiring.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_item_recipe.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/item_recipe.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/color_status_colors.xml.flat",
+        "source": "com.fridge.app-main-61:/color/status_colors.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_notification.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_notification.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_recipe.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_recipe.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_item_ingredient.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/item_ingredient.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_difficulty_easy.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_difficulty_easy.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/xml_file_paths.xml.flat",
+        "source": "com.fridge.app-main-61:/xml/file_paths.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_circle.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_circle.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_more_vert.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_more_vert.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_item_recipe_ingredient.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/item_recipe_ingredient.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_dialog_add_ingredient.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/dialog_add_ingredient.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_item_recipe_step.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/item_recipe_step.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.fridge.app-main-61:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_difficulty_badge.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_difficulty_badge.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.fridge.app-main-61:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_time_badge.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_time_badge.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_favorite_filled.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_favorite_filled.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_search.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_search.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_activity_recipe_detail.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/activity_recipe_detail.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/xml_backup_rules.xml.flat",
+        "source": "com.fridge.app-main-61:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_days_left_expired.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_days_left_expired.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_fragment_recipe_list.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/fragment_recipe_list.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_days_left_warning.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_days_left_warning.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_difficulty_hard.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_difficulty_hard.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_recipe_book.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_recipe_book.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_days_left_normal.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_days_left_normal.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_chart.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_chart.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_recipe_placeholder.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_recipe_placeholder.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_difficulty_medium.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_difficulty_medium.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_activity_main.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_fridge.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_fridge.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/xml_data_extraction_rules.xml.flat",
+        "source": "com.fridge.app-main-61:/xml/data_extraction_rules.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_food.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_food.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_can_make.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_can_make.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_days_left.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_days_left.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_fragment_statistics.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/fragment_statistics.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/layout_activity_image_preview.xml.flat",
+        "source": "com.fridge.app-main-61:/layout/activity_image_preview.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_ic_fridge_empty.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/ic_fridge_empty.xml"
+    },
+    {
+        "merged": "com.fridge.app-merged_res-59:/drawable_bg_category_chip.xml.flat",
+        "source": "com.fridge.app-main-61:/drawable/bg_category_chip.xml"
+    }
+]

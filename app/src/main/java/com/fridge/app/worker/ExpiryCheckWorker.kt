@@ -8,9 +8,9 @@ import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import com.fridge.app.data.db.AppDatabase
 import com.fridge.app.data.model.Ingredient
+import com.fridge.app.data.model.IngredientCategory
 import com.fridge.app.notification.NotificationHelper
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withContext
 import java.util.Calendar
 import java.util.Date
@@ -45,7 +45,9 @@ class ExpiryCheckWorker(
      */
     private suspend fun checkAndNotifyExpired() {
         val expiredIngredients = withContext(Dispatchers.IO) {
-            ingredientDao.getExpiredIngredients(Date()).first()
+            ingredientDao.getAllIngredientsSync().filter {
+                it.expireDate != null && it.expireDate.before(Date())
+            }
         }
 
         if (expiredIngredients.isNotEmpty()) {
@@ -60,9 +62,9 @@ class ExpiryCheckWorker(
 
             // 发送单独通知给特别重要的食材（如肉类、海鲜）
             val importantExpired = expiredIngredients.filter { 
-                it.category == com.fridge.app.data.model.IngredientCategory.MEAT ||
-                it.category == com.fridge.app.data.model.IngredientCategory.SEAFOOD ||
-                it.category == com.fridge.app.data.model.IngredientCategory.DAIRY
+                it.category == IngredientCategory.MEAT ||
+                it.category == IngredientCategory.SEAFOOD ||
+                it.category == IngredientCategory.DAIRY
             }
 
             importantExpired.forEach { ingredient ->

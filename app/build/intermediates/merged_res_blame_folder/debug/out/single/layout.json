@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/item_recipe.xml",
+        "source": "com.fridge.app-main-61:/layout/item_recipe.xml"
+    },
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/item_recipe_ingredient.xml",
+        "source": "com.fridge.app-main-61:/layout/item_recipe_ingredient.xml"
+    },
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/activity_recipe_detail.xml",
+        "source": "com.fridge.app-main-61:/layout/activity_recipe_detail.xml"
+    },
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/item_ingredient.xml",
+        "source": "com.fridge.app-main-61:/layout/item_ingredient.xml"
+    },
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/activity_image_preview.xml",
+        "source": "com.fridge.app-main-61:/layout/activity_image_preview.xml"
+    },
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/item_recipe_step.xml",
+        "source": "com.fridge.app-main-61:/layout/item_recipe_step.xml"
+    },
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/activity_main.xml",
+        "source": "com.fridge.app-main-61:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/dialog_add_ingredient.xml",
+        "source": "com.fridge.app-main-61:/layout/dialog_add_ingredient.xml"
+    },
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/fragment_recipe_list.xml",
+        "source": "com.fridge.app-main-61:/layout/fragment_recipe_list.xml"
+    },
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/fragment_statistics.xml",
+        "source": "com.fridge.app-main-61:/layout/fragment_statistics.xml"
+    },
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/activity_ingredient_detail.xml",
+        "source": "com.fridge.app-main-61:/layout/activity_ingredient_detail.xml"
+    },
+    {
+        "merged": "com.fridge.app-mergeDebugResources-58:/layout/fragment_ingredient_list.xml",
+        "source": "com.fridge.app-main-61:/layout/fragment_ingredient_list.xml"
+    }
+]

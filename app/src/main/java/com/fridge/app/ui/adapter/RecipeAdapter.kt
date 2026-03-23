@@ -3,7 +3,6 @@ package com.fridge.app.ui.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DiffUtil
@@ -29,12 +28,11 @@ class RecipeAdapter(
     }
 
     fun submitRecipeList(recipes: List<Recipe>) {
-        submitList(recipes.map { RecipeMatchResult.CanMake(it) })
+        submitList(recipes.map { RecipeMatchResult.canMake(it) })
     }
 
     inner class RecipeViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        private val cardView: CardView = itemView.findViewById(R.id.cardView)
-        private val ivRecipeImage: ImageView = itemView.findViewById(R.id.ivRecipeImage)
+        private val cardView = itemView as CardView
         private val tvDifficulty: TextView = itemView.findViewById(R.id.tvDifficulty)
         private val tvCookingTime: TextView = itemView.findViewById(R.id.tvCookingTime)
         private val tvRecipeName: TextView = itemView.findViewById(R.id.tvRecipeName)
@@ -44,37 +42,32 @@ class RecipeAdapter(
 
         fun bind(matchResult: RecipeMatchResult) {
             val recipe = matchResult.recipe
-
             tvRecipeName.text = recipe.name
-            tvDescription.text = recipe.description ?: ""
-            tvCookingTime.text = "${recipe.cookingTime}分钟"
+            tvDescription.text = recipe.description.orEmpty()
+            tvCookingTime.text = "${recipe.cookingTime} min"
             tvDifficulty.text = getDifficultyText(recipe.difficulty)
-
-            // 难度标签背景色
             tvDifficulty.setBackgroundResource(getDifficultyBackground(recipe.difficulty))
 
-            // 根据匹配结果显示不同状态
             if (matchResult.canMake) {
                 tvCanMake.visibility = View.VISIBLE
                 tvMissingIngredients.visibility = View.GONE
                 cardView.alpha = 1.0f
             } else {
                 tvCanMake.visibility = View.GONE
-                if (matchResult.missingIngredients.isNotEmpty()) {
+                val missing = matchResult.missingIngredients
+                if (missing.isNotEmpty()) {
                     tvMissingIngredients.visibility = View.VISIBLE
-                    val missingText = matchResult.missingIngredients
-                        .take(2)
-                        .joinToString(", ") { it.name }
-                    val moreCount = matchResult.missingIngredients.size - 2
+                    val missingText = missing.take(2).joinToString(", ") { it.name }
+                    val moreCount = missing.size - 2
                     tvMissingIngredients.text = if (moreCount > 0) {
-                        "缺: $missingText 等${moreCount}样"
+                        "Missing: $missingText and $moreCount more"
                     } else {
-                        "缺: $missingText"
+                        "Missing: $missingText"
                     }
                 } else {
                     tvMissingIngredients.visibility = View.GONE
                 }
-                cardView.alpha = if (matchResult.matchRate > 0.7) 1.0f else 0.6f
+                cardView.alpha = if (matchResult.matchRate > 0.7f) 1.0f else 0.6f
             }
 
             itemView.setOnClickListener { onItemClick(recipe) }
@@ -82,9 +75,9 @@ class RecipeAdapter(
 
         private fun getDifficultyText(difficulty: Difficulty): String {
             return when (difficulty) {
-                Difficulty.EASY -> "简单"
-                Difficulty.MEDIUM -> "中等"
-                Difficulty.HARD -> "困难"
+                Difficulty.EASY -> "Easy"
+                Difficulty.MEDIUM -> "Medium"
+                Difficulty.HARD -> "Hard"
             }
         }
 

@@ -5,7 +5,7 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
-import com.fridge.app.utils.NotificationHelper
+import com.fridge.app.notification.NotificationHelper
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
@@ -23,11 +23,11 @@ class FridgeApplication : Application() {
 
             // 过期提醒通道
             val expiryChannel = NotificationChannel(
-                NotificationHelper.CHANNEL_EXPIRY,
-                getString(R.string.channel_expiry_name),
+                NotificationHelper.CHANNEL_EXPIRED,
+                getString(R.string.channel_expired_name),
                 NotificationManager.IMPORTANCE_HIGH
             ).apply {
-                description = getString(R.string.channel_expiry_description)
+                description = getString(R.string.channel_expired_description)
                 enableVibration(true)
                 enableLights(true)
             }

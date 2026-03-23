@@ -3,9 +3,10 @@ package com.fridge.app.data.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import androidx.room.TypeConverters
+import com.fridge.app.data.local.Converters
 
 @Entity(tableName = "recipes")
-@TypeConverters(RecipeConverters::class)
+@TypeConverters(Converters::class)
 data class Recipe(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,

@@ -1,17 +1,22 @@
 package com.fridge.app.data.repository
 
+import android.app.Application
 import androidx.lifecycle.LiveData
 import com.fridge.app.data.dao.IngredientDao
+import com.fridge.app.data.db.AppDatabase
 import com.fridge.app.data.model.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import java.util.Date
 import java.util.Calendar
 
 class IngredientRepository(private val ingredientDao: IngredientDao) {
+    constructor(application: Application) : this(AppDatabase.getDatabase(application).ingredientDao())
 
     val allIngredients: LiveData<List<Ingredient>> = ingredientDao.getAllIngredients()
 
-    suspend fun getIngredientById(id: Long): Ingredient? {
-        return ingredientDao.getIngredientById(id)
+    suspend fun getIngredientById(id: Long): Ingredient? = withContext(Dispatchers.IO) {
+        ingredientDao.getIngredientById(id)
     }
     
     // 别名方法
@@ -20,8 +25,8 @@ class IngredientRepository(private val ingredientDao: IngredientDao) {
     }
     
     // 获取所有食材（非LiveData）
-    suspend fun getAll(): List<Ingredient> {
-        return allIngredients.value ?: emptyList()
+    suspend fun getAll(): List<Ingredient> = withContext(Dispatchers.IO) {
+        ingredientDao.getAllIngredientsSync()
     }
 
     fun getIngredientsByCategory(category: IngredientCategory): LiveData<List<Ingredient>> {
@@ -39,41 +44,53 @@ class IngredientRepository(private val ingredientDao: IngredientDao) {
     suspend fun getExpiringIngredients(days: Int): List<Ingredient> {
         val calendar = java.util.Calendar.getInstance()
         calendar.add(java.util.Calendar.DAY_OF_YEAR, days)
-        return ingredientDao.getExpiringIngredients(calendar.time)
+        return withContext(Dispatchers.IO) {
+            ingredientDao.getExpiringIngredients(calendar.time)
+        }
     }
 
     fun searchIngredients(query: String): LiveData<List<Ingredient>> {
         return ingredientDao.searchIngredients(query)
     }
 
-    suspend fun insertIngredient(ingredient: Ingredient): Long {
-        return ingredientDao.insertIngredient(ingredient)
+    suspend fun insertIngredient(ingredient: Ingredient): Long = withContext(Dispatchers.IO) {
+        ingredientDao.insertIngredient(ingredient)
     }
 
-    suspend fun updateIngredient(ingredient: Ingredient) {
+    suspend fun updateIngredient(ingredient: Ingredient) = withContext(Dispatchers.IO) {
         ingredientDao.updateIngredient(ingredient)
     }
 
-    suspend fun deleteIngredient(ingredient: Ingredient) {
+    suspend fun update(ingredient: Ingredient) {
+        updateIngredient(ingredient)
+    }
+
+    suspend fun deleteIngredient(ingredient: Ingredient) = withContext(Dispatchers.IO) {
         ingredientDao.deleteIngredient(ingredient)
     }
 
-    suspend fun deleteIngredientById(id: Long) {
+    suspend fun delete(ingredient: Ingredient) {
+        deleteIngredient(ingredient)
+    }
+
+    suspend fun deleteIngredientById(id: Long) = withContext(Dispatchers.IO) {
         ingredientDao.deleteIngredientById(id)
     }
 
-    suspend fun deleteAllIngredients() {
+    suspend fun deleteAllIngredients() = withContext(Dispatchers.IO) {
         ingredientDao.deleteAllIngredients()
     }
 
-    suspend fun getIngredientCount(): Int {
-        return ingredientDao.getIngredientCount()
+    suspend fun getIngredientCount(): Int = withContext(Dispatchers.IO) {
+        ingredientDao.getIngredientCount()
     }
 
     suspend fun getExpiringCount(days: Int): Int {
         val calendar = java.util.Calendar.getInstance()
         calendar.add(java.util.Calendar.DAY_OF_YEAR, days)
-        return ingredientDao.getExpiringCount(calendar.time)
+        return withContext(Dispatchers.IO) {
+            ingredientDao.getExpiringCount(calendar.time)
+        }
     }
 
     // 获取按状态分组的食材
@@ -98,7 +115,9 @@ class IngredientRepository(private val ingredientDao: IngredientDao) {
      * 获取总体统计数据
      */
     suspend fun getOverallStatistics(): OverallStatistics {
-        val allIngredients = ingredientDao.getAllIngredientsSync()
+        val allIngredients = withContext(Dispatchers.IO) {
+            ingredientDao.getAllIngredientsSync()
+        }
         val totalCount = allIngredients.size
         
         val expiredCount = allIngredients.count { it.getStatus() == IngredientStatus.EXPIRED }
@@ -127,7 +146,9 @@ class IngredientRepository(private val ingredientDao: IngredientDao) {
      * 获取分类统计数据
      */
     suspend fun getCategoryStatistics(): List<CategoryStatistics> {
-        val allIngredients = ingredientDao.getAllIngredientsSync()
+        val allIngredients = withContext(Dispatchers.IO) {
+            ingredientDao.getAllIngredientsSync()
+        }
         val totalCount = allIngredients.size
         
         if (totalCount == 0) return emptyList()
@@ -151,7 +172,9 @@ class IngredientRepository(private val ingredientDao: IngredientDao) {
      * 获取状态统计数据
      */
     suspend fun getStatusStatistics(): List<StatusStatistics> {
-        val allIngredients = ingredientDao.getAllIngredientsSync()
+        val allIngredients = withContext(Dispatchers.IO) {
+            ingredientDao.getAllIngredientsSync()
+        }
         val totalCount = allIngredients.size
         
         if (totalCount == 0) return emptyList()
@@ -185,7 +208,9 @@ class IngredientRepository(private val ingredientDao: IngredientDao) {
         calendar.set(Calendar.SECOND, 0)
         val startDate = calendar.time
 
-        val allIngredients = ingredientDao.getAllIngredientsSync()
+        val allIngredients = withContext(Dispatchers.IO) {
+            ingredientDao.getAllIngredientsSync()
+        }
         val currentDate = Date()
 
         val trends = mutableListOf<MonthlyTrend>()
@@ -241,7 +266,9 @@ class IngredientRepository(private val ingredientDao: IngredientDao) {
      */
     suspend fun getExpiryRateTrends(months: Int = 12): List<ExpiryRateTrend> {
         val monthlyTrends = getMonthlyTrends(months)
-        val allIngredients = ingredientDao.getAllIngredientsSync()
+        val allIngredients = withContext(Dispatchers.IO) {
+            ingredientDao.getAllIngredientsSync()
+        }
         val currentDate = Date()
 
         return monthlyTrends.map { trend ->

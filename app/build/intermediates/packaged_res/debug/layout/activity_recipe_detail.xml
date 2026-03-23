@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/primary"
+        android:titleTextColor="@android:color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+            <ImageView android:id="@+id/ivRecipeImage" android:layout_width="match_parent" android:layout_height="220dp" android:contentDescription="@string/recipe_image" android:scaleType="centerCrop" android:src="@drawable/ic_recipe_placeholder" />
+            <TextView android:id="@+id/tvRecipeName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textSize="24sp" android:textStyle="bold" />
+            <TextView android:id="@+id/tvDescription" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="8dp" />
+            <com.google.android.material.chip.Chip android:id="@+id/tvDifficulty" style="@style/Widget.MaterialComponents.Chip.Choice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" />
+            <TextView android:id="@+id/tvCookingTime" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" />
+            <TextView android:id="@+id/tvServings" android:layout_width="wrap_content" android:layout_height="wrap_content" />
+            <TextView android:id="@+id/tvCuisineType" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="8dp" />
+            <TextView android:id="@+id/tvCanMakeStatus" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:textStyle="bold" />
+            <Button android:id="@+id/btnStartCooking" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:text="Start Cooking" />
+            <Button android:id="@+id/btnShare" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/share_via" />
+            <com.google.android.material.chip.ChipGroup android:id="@+id/chipGroupTags" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" />
+            <LinearLayout android:id="@+id/layoutIngredients" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="vertical" />
+            <LinearLayout android:id="@+id/layoutSteps" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="12dp" android:orientation="vertical" />
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabFavorite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
+        android:src="@drawable/ic_favorite_border" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
